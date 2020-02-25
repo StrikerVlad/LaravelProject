@@ -27,9 +27,13 @@
                         <a href="{{ route('user.edit', $user->id) }}" class="btn btn-info btn-sm">
                             <span class="icon fa fa-pencil"></span>
                         </a>
-                        <a href="{{ route('user.destroy', $user->id) }}" class="btn btn-danger btn-sm">
-                            <span class="icon fa fa-times"></span>
-                        </a>
+                        <form action="{{ route('user.destroy', $user->id) }}" method="POST">
+                            @csrf
+                            @method('DELETE')
+                            <button type="submit" class="btn btn-danger btn-sm">
+                                <span class="icon fa fa-times"></span>
+                            </button>
+                        </form>
                     </td>
                 </tr>
                 @endforeach
