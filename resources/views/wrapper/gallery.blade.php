@@ -1,63 +1,76 @@
-<!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+<!DOCTYPE HTML>
+<html>
 
 @include('wrapper.head')
 
 <body>
-    <main class="page-wrap" id="app">
+    <div class="page-wrap">
+
         @include('wrapper.nav')
 
         <!-- Main -->
         <section id="main">
 
-            <!-- Banner -->
-            <section id="banner">
-                <div class="inner">
-                    <h1>Hey, ITStep</h1>
-                    <p>A fully responsive gallery template by <a href="https://itstep.kz/">ITSTEP</a></p>
-                    <ul class="actions">
-                        <li><a href="#galleries" class="button alt scrolly big">Continue</a></li>
-                    </ul>
-                </div>
-            </section>
+            <!-- Header -->
+            <header id="header">
+                <div>Snapshot <span>by TEMPLATED</span></div>
+            </header>
 
             <!-- Gallery -->
             <section id="galleries">
 
                 <!-- Photo Galleries -->
                 <div class="gallery">
-                    <header class="special">
-                        <h2>What's New</h2>
+
+                    <!-- Filters -->
+                    <header>
+                        <h1>Gallery</h1>
+                        <ul class="tabs">
+                            <li><a href="#" data-tag="all" class="button active">All</a></li>
+                            <li><a href="#" data-tag="people" class="button">People</a></li>
+                            <li><a href="#" data-tag="place" class="button">Places</a></li>
+                            <li><a href="#" data-tag="thing" class="button">Things</a></li>
+                        </ul>
                     </header>
+
                     <div class="content">
-                        <div class="media">
+                        <div class="media all people">
                             <a href="images/fulls/01.jpg"><img src="images/thumbs/01.jpg" alt="" title="This right here is a caption." /></a>
                         </div>
-                        <div class="media">
+                        <div class="media all place">
                             <a href="images/fulls/05.jpg"><img src="images/thumbs/05.jpg" alt="" title="This right here is a caption." /></a>
                         </div>
-                        <div class="media">
+                        <div class="media all thing">
                             <a href="images/fulls/09.jpg"><img src="images/thumbs/09.jpg" alt="" title="This right here is a caption." /></a>
                         </div>
-                        <div class="media">
+                        <div class="media all people">
                             <a href="images/fulls/02.jpg"><img src="images/thumbs/02.jpg" alt="" title="This right here is a caption." /></a>
                         </div>
-                        <div class="media">
+                        <div class="media all place">
                             <a href="images/fulls/06.jpg"><img src="images/thumbs/06.jpg" alt="" title="This right here is a caption." /></a>
                         </div>
-                        <div class="media">
+                        <div class="media all thing">
                             <a href="images/fulls/10.jpg"><img src="images/thumbs/10.jpg" alt="" title="This right here is a caption." /></a>
                         </div>
-                        <div class="media">
+                        <div class="media all people">
                             <a href="images/fulls/03.jpg"><img src="images/thumbs/03.jpg" alt="" title="This right here is a caption." /></a>
                         </div>
-                        <div class="media">
+                        <div class="media all place">
                             <a href="images/fulls/07.jpg"><img src="images/thumbs/07.jpg" alt="" title="This right here is a caption." /></a>
                         </div>
+                        <div class="media all thing">
+                            <a href="images/fulls/11.jpg"><img src="images/thumbs/11.jpg" alt="" title="This right here is a caption." /></a>
+                        </div>
+                        <div class="media all people">
+                            <a href="images/fulls/04.jpg"><img src="images/thumbs/04.jpg" alt="" title="This right here is a caption." /></a>
+                        </div>
+                        <div class="media all place">
+                            <a href="images/fulls/08.jpg"><img src="images/thumbs/08.jpg" alt="" title="This right here is a caption." /></a>
+                        </div>
+                        <div class="media all thing">
+                            <a href="images/fulls/12.jpg"><img src="images/thumbs/12.jpg" alt="" title="This right here is a caption." /></a>
+                        </div>
                     </div>
-                    <footer>
-                        <a href="gallery.html" class="button big">Full Gallery</a>
-                    </footer>
                 </div>
             </section>
 
@@ -66,16 +79,8 @@
                 <!-- Social -->
                 <div class="social column">
                     <h3>About Me</h3>
-                    <p>Mus sed interdum nunc dictum rutrum scelerisque erat a parturient condimentum potenti dapibus
-                        vestibulum condimentum per tristique porta. Torquent a ut consectetur a vel ullamcorper a
-                        commodo a mattis ipsum class quam sed eros vestibulum quisque a eu nulla scelerisque a elementum
-                        vestibulum.</p>
-                    <p>Aliquet dolor ultricies sem rhoncus dolor ullamcorper pharetra dis condimentum ullamcorper rutrum
-                        vehicula id nisi vel aptent orci litora hendrerit penatibus erat ad sit. In a semper velit
-                        eleifend a viverra adipiscing a phasellus urna praesent parturient integer ultrices montes
-                        parturient suscipit posuere quis aenean. Parturient euismod ultricies commodo arcu elementum
-                        suspendisse id dictumst at ut vestibulum conubia quisque a himenaeos dictum proin dis purus
-                        integer mollis parturient eros scelerisque dis libero parturient magnis.</p>
+                    <p>Mus sed interdum nunc dictum rutrum scelerisque erat a parturient condimentum potenti dapibus vestibulum condimentum per tristique porta. Torquent a ut consectetur a vel ullamcorper a commodo a mattis ipsum class quam sed eros vestibulum quisque a eu nulla scelerisque a elementum vestibulum.</p>
+                    <p>Aliquet dolor ultricies sem rhoncus dolor ullamcorper pharetra dis condimentum ullamcorper rutrum vehicula id nisi vel aptent orci litora hendrerit penatibus erat ad sit. In a semper velit eleifend a viverra adipiscing a phasellus urna praesent parturient integer ultrices montes parturient suscipit posuere quis aenean. Parturient euismod ultricies commodo arcu elementum suspendisse id dictumst at ut vestibulum conubia quisque a himenaeos dictum proin dis purus integer mollis parturient eros scelerisque dis libero parturient magnis.</p>
                     <h3>Follow Me</h3>
                     <ul class="icons">
                         <li><a href="#" class="icon fa-twitter"><span class="label">Twitter</span></a></li>
@@ -115,9 +120,11 @@
                 </div>
             </footer>
         </section>
-    </main>
+    </div>
+
     <!-- Scripts -->
     @include('wrapper.scripts')
+
 </body>
 
 </html>
