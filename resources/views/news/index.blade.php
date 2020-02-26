@@ -24,5 +24,8 @@
             </tbody>
         </table>
     </div>
+    <div class="paginate" style="margin-left:20px">
+        {{ $news->links() }}
+    </div>
 </div>
 @endsection
