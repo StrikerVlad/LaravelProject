@@ -75,7 +75,12 @@ class NewsController extends Controller
      */
     public function update(Request $request, News $news)
     {
-        dd($news);
+        $news->title = $request->title;
+        $news->description = $request->description;
+        $news->user_id = auth()->user()->id;
+        $news->save();
+
+        return redirect()->route('news.index');
     }
 
     /**
@@ -86,6 +91,7 @@ class NewsController extends Controller
      */
     public function destroy(News $news)
     {
-        //
+        $news->delete();
+        return redirect()->route('news.index');
     }
 }
