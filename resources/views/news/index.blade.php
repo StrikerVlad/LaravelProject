@@ -12,6 +12,7 @@
                     <th scope="col">#</th>
                     <th scope="col">Title</th>
                     <th scope="col">Description</th>
+                    <th scope="col">Status</th>
                     <th scope="col">Date</th>
                     <th>Action</th>
                 </tr>
@@ -22,6 +23,11 @@
                     <th scope="row">{{ $item->id }}</th>
                     <td>{{ $item->title }}</td>
                     <td>{{ $item->description }}</td>
+                    <td>
+                        <a href="#" class="m-2" onclick="changeStatus('{{ $item->id }}')">
+                            <span class="icon fa fa-times fa-2x"></span>
+                        </a>
+                    </td>
                     <td>{{ $item->created_at->diffForHumans() }}</td>
                     <td>
                         <a href="{{ route('news.edit', $item->id) }}" class="btn btn-warning btn-sm">
@@ -99,4 +105,13 @@
         </div>
     </div>
 </div>
+
+@endsection
+
+@section('script')
+<script>
+    function changeStatus(id) {
+        console.log(id);
+    }
+</script>
 @endsection
