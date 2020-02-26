@@ -36,7 +36,12 @@ class NewsController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        News::create([
+            'title' => $request->title,
+            'description' => $request->description,
+            'user_id' => auth()->user()->id
+        ]);
+        return redirect()->route('news.index');
     }
 
     /**
@@ -58,7 +63,7 @@ class NewsController extends Controller
      */
     public function edit(News $news)
     {
-        //
+        return view('news.edit', compact('news'));
     }
 
     /**
@@ -70,7 +75,7 @@ class NewsController extends Controller
      */
     public function update(Request $request, News $news)
     {
-        //
+        dd($news);
     }
 
     /**
