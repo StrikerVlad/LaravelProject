@@ -14,7 +14,7 @@ class NewsController extends Controller
      */
     public function index()
     {
-        $news = News::paginate(3);
+        $news = News::paginate(5);
         return view('news.index', compact('news'));
     }
 
@@ -93,5 +93,24 @@ class NewsController extends Controller
     {
         $news->delete();
         return redirect()->route('news.index');
+    }
+
+    public function changeNewsStatus(News $news, Request $request)
+    {
+        $news->is_published = $news->is_published ? 0 : 1;
+        $news->save();
+        return ['Successfuly saved', 'id' => $news->is_published];
+    }
+
+    public function getAllNews()
+    {
+        $items = News::where('is_published', 1)->get();
+        $news = $items->sortByDesc('created_at');
+        return view('news.show', compact('news'));
+    }
+
+    public function showNews(News $news)
+    {
+        return view('news.news', compact('news'));
     }
 }

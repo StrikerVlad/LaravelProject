@@ -22,10 +22,13 @@
                 <tr>
                     <th scope="row">{{ $item->id }}</th>
                     <td>{{ $item->title }}</td>
-                    <td>{{ $item->description }}</td>
-                    <td>
-                        <a href="#" class="m-2" onclick="changeStatus('{{ $item->id }}')">
-                            <span class="icon fa fa-times fa-2x"></span>
+                    <td>{{ \Illuminate\Support\Str::limit($item->description, 100, $end=' ... ') }}</td>
+                    <td class="publish-{{$item->id}}">
+                        <a href="#" id="{{ $item->id }}" class="btn-submit" onclick="changeStatus('{{ $item->id }}')">
+                            @if($item->is_published)
+                            <span class="icon fa fa-check fa-2x"></span>
+                            @else<span class="icon fa fa-times fa-2x"></span>
+                            @endif
                         </a>
                     </td>
                     <td>{{ $item->created_at->diffForHumans() }}</td>
@@ -109,9 +112,29 @@
 @endsection
 
 @section('script')
-<script>
+<script type="text/javascript">
     function changeStatus(id) {
-        console.log(id);
+        let element = document.getElementById(id);
+        $.ajax({
+            type: 'GET',
+            url: '/news/' + id + '/status',
+            data: {
+                _token: $('meta[name="csrf-token"]').attr('content'),
+                id: id
+            }
+        }).then(function(response) {
+            console.log(response);
+            let child = element.lastElementChild;
+            element.removeChild(child);
+            let span = document.createElement('span');
+            if (response.id == 1) {
+                span.className = 'icon fa fa-check  fa-2x';
+            } else {
+                span.className = 'icon fa fa-times  fa-2x';
+            }
+            element.appendChild(span);
+            $(".publish-".id).add(element);
+        });
     }
 </script>
 @endsection
